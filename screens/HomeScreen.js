@@ -25,6 +25,6 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   text: {
-    color: "blue",
+    color: "lightblue",
   },
 });
