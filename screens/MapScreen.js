@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 const MapScreen = () => {
   return (
     <View>
-      <Text>Here is the map staff </Text>
+      <Text>Here is the map staffsx</Text>
     </View>
   );
 };
