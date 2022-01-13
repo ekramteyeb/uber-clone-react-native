@@ -32,9 +32,11 @@ const data = [
   },
 ];
 const Item = ({ title }) => (
-  <View style={[styles.item, tw`bg-gray-200`]}>
-    <Text style={styles.title}>{title}</Text>
-  </View>
+  <TouchableOpacity onPress={(e) => console.log(e.currentTarget)}>
+    <View style={[styles.item, tw`bg-gray-200`]}>
+      <Text style={styles.title}>{title}</Text>
+    </View>
+  </TouchableOpacity>
 );
 const EatsScreen = () => {
   return (
@@ -56,7 +58,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: StatusBar.currentHeight,
-    marginHorizontal: 16,
+    marginHorizontal: 6,
   },
   item: {
     padding: 20,
@@ -65,6 +67,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 32,
     backgroundColor: "#ffff",
+    paddingLeft: 12,
   },
   title: {
     fontSize: 24,
