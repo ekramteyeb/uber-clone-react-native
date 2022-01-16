@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import HomeScreen from "./screens/HomeScreen";
 import MapScreen from "./screens/MapScreen";
 import EatsScreen from "./screens/EatsScreen";
+import WhatsupScreen from "./screens/WhatsupScreen";
 import { store } from "./store";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import "react-native-gesture-handler";
@@ -34,6 +35,13 @@ export default function App() {
             <Stack.Screen
               name="EatsScreen"
               component={EatsScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="WhatsupScreen"
+              component={WhatsupScreen}
               options={{
                 headerShown: false,
               }}

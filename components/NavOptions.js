@@ -17,6 +17,13 @@ const data = [
     image: "https://links.papareact.com/28w",
     sreen: "EatsScreen",
   },
+  {
+    id: "9102",
+    title: "Whatsup",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png",
+    sreen: "WhatsupScreen",
+  },
 ];
 const NavOptions = () => {
   const navigation = useNavigation();
@@ -24,7 +31,6 @@ const NavOptions = () => {
     <FlatList
       data={data}
       keyExtractor={(item) => item.id}
-      horizontal
       renderItem={({ item }) => (
         <TouchableOpacity
           onPress={() => navigation.navigate(item.sreen)}
