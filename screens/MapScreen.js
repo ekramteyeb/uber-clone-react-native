@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import tw from "tailwind-react-native-classnames";
-import Constants from "expo-constants";
+import * as Device from "expo-device";
 import * as Notifications from "expo-notifications";
 import {
   Text,
@@ -102,7 +102,7 @@ async function sendPushNotification(expoPushToken) {
 
 async function registerForPushNotificationsAsync() {
   let token;
-  if (Constants.isDevice) {
+  if (Device.isDevice) {
     const { status: existingStatus } =
       await Notifications.getPermissionsAsync();
     let finalStatus = existingStatus;
