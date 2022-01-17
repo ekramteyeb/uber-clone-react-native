@@ -1,3 +1,4 @@
+import Constants from "expo-constants";
 import React, { useState, useEffect, useRef } from "react";
 import tw from "tailwind-react-native-classnames";
 import * as Device from "expo-device";
@@ -14,7 +15,7 @@ import {
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
-    shouldPlaySound: false,
+    shouldPlaySound: true,
     shouldSetBadge: false,
   }),
 });
@@ -85,7 +86,7 @@ async function sendPushNotification(expoPushToken) {
     to: expoPushToken,
     sound: "default",
     title: "Original Title",
-    body: "And here is the body!",
+    body: `U recived a message!`,
     data: { someData: "goes here" },
   };
 
