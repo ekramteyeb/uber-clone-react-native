@@ -84,8 +84,8 @@ const MapScreen = () => {
 async function sendPushNotification(expoPushToken) {
   const message = {
     to: expoPushToken,
-    sound: "default",
-    title: "Original Title",
+    sound: "default ",
+    title: "Original Title ",
     body: `U recived a message!`,
     data: { someData: "goes here" },
   };
