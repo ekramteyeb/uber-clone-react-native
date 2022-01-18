@@ -24,6 +24,13 @@ const data = [
       "https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png",
     sreen: "WhatsupScreen",
   },
+  {
+    id: "9103",
+    title: "Countries",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/GDJ-World-Flags-Globe_.svg/640px-GDJ-World-Flags-Globe_.svg.png",
+    sreen: "CountriesScreen",
+  },
 ];
 const NavOptions = () => {
   const navigation = useNavigation();
