@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import HomeScreen from "./screens/HomeScreen";
 import MapScreen from "./screens/MapScreen";
 import EatsScreen from "./screens/EatsScreen";
+import CountriesScreen from "./screens/CountriesScreen";
 import WhatsupScreen from "./screens/WhatsupScreen";
 import { store } from "./store";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -42,6 +43,13 @@ export default function App() {
             <Stack.Screen
               name="WhatsupScreen"
               component={WhatsupScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="CountriesScreen"
+              component={CountriesScreen}
               options={{
                 headerShown: false,
               }}
