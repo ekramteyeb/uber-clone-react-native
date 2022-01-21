@@ -18,7 +18,9 @@ const CountriesScreen = () => {
   useEffect(async () => {
     try {
       let response = await fetch(
-        "https://daki-ecommerce.herokuapp.com/api/v1/products"
+        //"https://daki-ecommerce.herokuapp.com/api/v1/products"
+        //"https://restcountries.com/v2/all"
+        "https://api.thecatapi.com/v1/breeds?&api_key=d2fa1b3f-bf8a-41be-9ff9-633e9bd15621"
       );
       let json = await response.json();
       setProducts(json);
@@ -44,17 +46,17 @@ const CountriesScreen = () => {
           data={products}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => alert(`${item.rating}`)}>
-              <View style={[styles.item, tw`bg-gray-200`]}>
+              <View style={[styles.item, tw`bg-gray-600`]}>
                 <View style={styles.productImageContainer}>
                   <Image
                     style={styles.productImage}
                     source={{
-                      uri: `${item.image}`,
+                      uri: `${item?.image?.url}`,
                     }}
                   />
                 </View>
                 <Text styles={styles.title}>{item.name}</Text>
-                <Text styles={styles.title}> € {item.price}</Text>
+                <Text styles={styles.title}> € {item.adaptability}</Text>
               </View>
             </TouchableOpacity>
           )}
@@ -86,6 +88,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     borderRadius: 5,
+    position: "relative",
   },
   title: {
     fontSize: 48,
@@ -101,15 +104,14 @@ const styles = StyleSheet.create({
     paddingTop: 15,
   },
   productImage: {
-    width: 100,
-    height: 80,
-    resizeMode: "contain",
-    borderRadius: 5,
+    width: 120,
+    height: 120,
+    resizeMode: "cover",
   },
   productImageContainer: {
-    borderWidth: 8,
-    borderColor: "#888",
-    padding: 5,
-    borderRadius: 5,
+    width: 128,
+    paddingLeft: 0,
+    borderWidth: 2,
+    borderRightColor: "green",
   },
 });
