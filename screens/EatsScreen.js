@@ -32,7 +32,7 @@ const data = [
   },
 ];
 const Item = ({ title }) => (
-  <TouchableOpacity onPress={(e) => console.log(e.currentTarget)}>
+  <TouchableOpacity onPress={(e) => alert("you presed me")}>
     <View style={[styles.item, tw`bg-gray-200`]}>
       <Text style={styles.title}>{title}</Text>
     </View>
