@@ -9,6 +9,8 @@ import {
   StatusBar,
   SectionList,
   StyleSheet,
+  TextInput,
+  Button,
 } from "react-native";
 import { Icon } from "react-native-elements";
 import tw from "tailwind-react-native-classnames";
@@ -39,8 +41,44 @@ const Item = ({ title }) => (
   </TouchableOpacity>
 );
 const EatsScreen = () => {
+  const [number1, onChangeText] = React.useState(null);
+  const [number, onChangeNumber] = React.useState(null);
+  const [result, setResult] = React.useState(null);
   return (
     <SafeAreaView style={[styles.container, tw`bg-white h-full `]}>
+      <View style={styles.game}>
+        <Text style={styles.title}>Reema's Game</Text>
+        <View style={styles.buttonAdd}>
+          <TextInput
+            style={styles.title}
+            onChangeText={onChangeText}
+            value={number1}
+            placeholder="enter number"
+          />
+        </View>
+        <View style={styles.buttonAdd}>
+          <TextInput
+            style={styles.title}
+            onChangeText={onChangeNumber}
+            value={number}
+            placeholder="enter number"
+            keyboardType="numeric"
+          />
+        </View>
+        <View style={styles.buttonAdd}>
+          <Button
+            onPress={function () {
+              setResult(Number(number) + Number(number1));
+              onChangeNumber(null);
+              onChangeText(null);
+            }}
+            title="Add"
+            color="#841584"
+            accessibilityLabel="Learn more about this purple button"
+          />
+        </View>
+        <Text style={styles.title}>{result}</Text>
+      </View>
       <SectionList
         style={tw`pt-2`}
         sections={data}
@@ -71,6 +109,16 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
+  },
+  game: {
+    backgroundColor: "cyan",
+    height: 200,
+  },
+  buttonAdd: {
+    padding: 4,
+    backgroundColor: "white",
+    borderWidth: 2,
+    width: "50%",
   },
 });
 

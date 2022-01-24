@@ -21,7 +21,8 @@ const data = [
     id: "9102",
     title: "Whatsup",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png",
+      //"https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png",
+      "https://heignoma.sirv.com/Images/Apple%20Watch%20white.jpg",
     sreen: "WhatsupScreen",
   },
   {
