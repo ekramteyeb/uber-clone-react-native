@@ -89,16 +89,20 @@ async function sendPushNotification(expoPushToken) {
     body: `U recived a message!`,
     data: { someData: "goes here" },
   };
-
-  await fetch("https://exp.host/--/api/v2/push/send", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Accept-encoding": "gzip, deflate",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(message),
-  });
+  try {
+    await fetch("https://exp.host/--/api/v2/push/send", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Accept-encoding": "gzip, deflate",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(message),
+    });
+    console.log("message sent", message);
+  } catch (err) {
+    console.log("eror not sent", err);
+  }
 }
 
 async function registerForPushNotificationsAsync() {
