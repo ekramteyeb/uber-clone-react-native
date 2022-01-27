@@ -42,7 +42,7 @@ const NavOptions = () => {
       renderItem={({ item }) => (
         <TouchableOpacity
           onPress={() => navigation.navigate(item.sreen)}
-          style={tw`bg-gray-200  p-2 m-2 w-80`}
+          style={tw`bg-gray-200  p-10 m-2 w-80`}
         >
           <View
             style={{
