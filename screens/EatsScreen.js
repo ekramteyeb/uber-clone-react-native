@@ -111,12 +111,12 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   game: {
-    backgroundColor: "cyan",
+    backgroundColor: "blue",
     height: 200,
   },
   buttonAdd: {
     padding: 5,
-    backgroundColor: "white",
+    backgroundColor: "lightblue",
     borderWidth: 2,
     width: "50%",
   },
