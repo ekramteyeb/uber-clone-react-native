@@ -74,7 +74,7 @@ const EatsScreen = () => {
             }}
             title="Add"
             color="#841584"
-            accessibilityLabel="Learn mo about this purple button"
+            accessibilityLabel="Learn more t about this purple button"
           />
         </View>
         <Text style={styles.title}>{result}</Text>
