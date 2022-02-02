@@ -1,4 +1,3 @@
-import Constants from "expo-constants";
 import React, { useState, useEffect, useRef } from "react";
 import tw from "tailwind-react-native-classnames";
 import * as Device from "expo-device";
@@ -15,13 +14,14 @@ import {
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
-    shouldPlaySound: true,
+    shouldPlaySound: false,
     shouldSetBadge: false,
   }),
 });
 const MapScreen = () => {
   const [expoPushToken, setExpoPushToken] = useState("");
   const [notification, setNotification] = useState(false);
+
   const notificationListener = useRef();
   const responseListener = useRef();
 
@@ -62,7 +62,7 @@ const MapScreen = () => {
         <Text>Your expo push token: {expoPushToken}</Text>
         <View style={{ alignItems: "center", justifyContent: "center" }}>
           <Text>
-            Title: {notification && notification.request.content.title}{" "}
+            Title: {notification && notification.request.content.title}
           </Text>
           <Text>Body: {notification && notification.request.content.body}</Text>
           <Text>
@@ -89,24 +89,21 @@ async function sendPushNotification(expoPushToken) {
     body: `U recived a message!`,
     data: { someData: "goes here" },
   };
-  try {
-    await fetch("https://exp.host/--/api/v2/push/send", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Accept-encoding": "gzip, deflate",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(message),
-    });
-    console.log("message sent", message);
-  } catch (err) {
-    console.log("eror not sent", err);
-  }
+
+  await fetch("https://exp.host/--/api/v2/push/send", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Accept-encoding": "gzip, deflate",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(message),
+  });
 }
 
 async function registerForPushNotificationsAsync() {
   let token;
+
   if (Device.isDevice) {
     const { status: existingStatus } =
       await Notifications.getPermissionsAsync();
@@ -119,8 +116,8 @@ async function registerForPushNotificationsAsync() {
       alert("Failed to get push token for push notification!");
       return;
     }
+
     token = (await Notifications.getExpoPushTokenAsync()).data;
-    console.log(token);
   } else {
     alert("Must use physical device for Push Notifications");
   }
