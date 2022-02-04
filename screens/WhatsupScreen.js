@@ -80,7 +80,7 @@ const WhatsupScreen = () => {
               <Text style={tw`text-white text-xl`}>status</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => alert("call 911")}>
             <View>
               <Text style={tw`text-white text-xl`}>calls</Text>
             </View>
