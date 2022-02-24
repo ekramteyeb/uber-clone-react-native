@@ -21,8 +21,7 @@ const data = [
     id: "9102",
     title: "Whatsup",
     image:
-      //"https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png",
-      "https://heignoma.sirv.com/Images/Apple%20Watch%20white.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png",
     sreen: "WhatsupScreen",
   },
   {
@@ -39,18 +38,25 @@ const NavOptions = () => {
     <FlatList
       data={data}
       keyExtractor={(item) => item.id}
+      horizontal={false}
+      numColumns={2}
       renderItem={({ item }) => (
         <TouchableOpacity
           onPress={() => navigation.navigate(item.sreen)}
-          style={tw`bg-gray-200  p-10 m-2 w-80`}
+          style={[tw`bg-gray-300 p-2 m-2`, { borderRadius: 6, width: "46%" }]}
         >
           <View
             style={{
-              paddingLeft: 90,
+              paddingLeft: 6,
             }}
           >
             <Image
-              style={{ width: 120, height: 116, resizeMode: "contain" }}
+              style={{
+                width: 110,
+                height: 106,
+                paddingLeft: 120,
+                resizeMode: "contain",
+              }}
               source={{ uri: item.image }}
             />
             <Text style={tw`mt-2 text-lg font-semibold`}>{item.title}</Text>
