@@ -23,7 +23,8 @@ const CountriesScreen = () => {
         "https://api.thecatapi.com/v1/breeds?&api_key=d2fa1b3f-bf8a-41be-9ff9-633e9bd15621"
       );
       let json = await response.json();
-      setProducts(json);
+      let fileterd = json.filter((x, i) => (i % 2 == 0 ? x : ""));
+      setProducts(fileterd);
     } catch (error) {
       console.log(error);
     }
@@ -40,10 +41,10 @@ const CountriesScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.header}> {products.length} Available Products</Text>
       {products?.length !== 0 ? (
         <FlatList
           data={products}
+          initialNumToRender={10}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => alert(`${item.rating}`)}>
               <View style={[styles.item, tw`bg-gray-600`]}>
@@ -104,14 +105,12 @@ const styles = StyleSheet.create({
     paddingTop: 15,
   },
   productImage: {
-    width: 120,
-    height: 120,
+    width: 140,
+    height: 130,
+    borderRadius: 6,
     resizeMode: "cover",
   },
   productImageContainer: {
-    width: 128,
     paddingLeft: 0,
-    borderWidth: 2,
-    borderRightColor: "green",
   },
 });
