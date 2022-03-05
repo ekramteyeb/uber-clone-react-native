@@ -6,6 +6,7 @@ import MapScreen from "./screens/MapScreen";
 import EatsScreen from "./screens/EatsScreen";
 import CountriesScreen from "./screens/CountriesScreen";
 import WhatsupScreen from "./screens/WhatsupScreen";
+import SendNotificationScreen from "./screens/SendNotificationScreen";
 import { store } from "./store";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import "react-native-gesture-handler";
@@ -50,6 +51,13 @@ export default function App() {
             <Stack.Screen
               name="CountriesScreen"
               component={CountriesScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="SendNotificationScreen"
+              component={SendNotificationScreen}
               options={{
                 headerShown: false,
               }}
