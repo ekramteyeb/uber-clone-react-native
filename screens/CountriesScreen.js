@@ -40,11 +40,11 @@ const CountriesScreen = () => {
   }; */
 
   return (
-    <SafeAreaView style={[styles.container, tw`bg-gray-300`]}>
+    <SafeAreaView style={[styles.container, tw`bg-gray-200`]}>
       {products?.length !== 0 ? (
         <FlatList
           data={products}
-          initialNumToRender={10}
+          initialNumToRender={5}
           renderItem={({ item }) => (
             <TouchableOpacity
               onPress={() =>
@@ -85,12 +85,12 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
   },
   item: {
-    paddingLeft: 0,
+    paddingRight: 25,
     padding: 18,
     marginVertical: 6,
     marginHorizontal: 8,
     display: "flex",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "center",
     borderRadius: 5,
