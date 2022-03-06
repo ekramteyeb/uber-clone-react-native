@@ -40,14 +40,20 @@ const CountriesScreen = () => {
   }; */
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, tw`bg-gray-300`]}>
       {products?.length !== 0 ? (
         <FlatList
           data={products}
           initialNumToRender={10}
           renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => alert(`${item.rating}`)}>
-              <View style={[styles.item, tw`bg-gray-300`]}>
+            <TouchableOpacity
+              onPress={() =>
+                alert(
+                  `name : ${item.name} \n  ${item.temperament} \n Adaptability : ${item.adaptability}`
+                )
+              }
+            >
+              <View style={[styles.item, tw`bg-white`]}>
                 <View style={styles.productImageContainer}>
                   <Image
                     style={styles.productImage}
@@ -56,8 +62,8 @@ const CountriesScreen = () => {
                     }}
                   />
                 </View>
-                <Text styles={styles.title}>{item.name}</Text>
-                <Text styles={styles.title}> € {item.adaptability}</Text>
+                <Text style={styles.title}>{item.name}</Text>
+                <Text style={styles.title}> € {item.adaptability}</Text>
               </View>
             </TouchableOpacity>
           )}
@@ -77,11 +83,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
-    backgroundColor: "#f0f8ff",
   },
   item: {
-    backgroundColor: "#f9c2ff",
-    padding: 20,
+    paddingLeft: 0,
+    padding: 18,
     marginVertical: 6,
     marginHorizontal: 8,
     display: "flex",
@@ -92,7 +97,7 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   title: {
-    fontSize: 48,
+    fontSize: 20,
     fontWeight: "bold",
     fontFamily: "Cochin",
   },
