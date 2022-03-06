@@ -47,7 +47,7 @@ const CountriesScreen = () => {
           initialNumToRender={10}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => alert(`${item.rating}`)}>
-              <View style={[styles.item, tw`bg-gray-600`]}>
+              <View style={[styles.item, tw`bg-gray-300`]}>
                 <View style={styles.productImageContainer}>
                   <Image
                     style={styles.productImage}
