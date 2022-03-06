@@ -62,8 +62,10 @@ const CountriesScreen = () => {
                     }}
                   />
                 </View>
-                <Text style={styles.title}>{item.name}</Text>
-                <Text style={styles.title}> € {item.adaptability}</Text>
+                <View style={styles.texts}>
+                  <Text style={styles.title}>{item.name}</Text>
+                  <Text style={styles.title}> € {item.adaptability}</Text>
+                </View>
               </View>
             </TouchableOpacity>
           )}
@@ -85,12 +87,11 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
   },
   item: {
-    paddingRight: 25,
+    paddingRight: 45,
     padding: 18,
     marginVertical: 6,
     marginHorizontal: 8,
     display: "flex",
-    justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "center",
     borderRadius: 5,
@@ -101,6 +102,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontFamily: "Cochin",
   },
+  texts: { marginLeft: 30 },
   header: {
     fontSize: 32,
     fontWeight: "bold",
