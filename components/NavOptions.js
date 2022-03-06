@@ -2,7 +2,9 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { FlatList, TouchableOpacity, Text, View, Image } from "react-native";
 import { Icon } from "react-native-elements";
+import { useSelector } from "react-redux";
 import tw from "tailwind-react-native-classnames";
+import { selectOrigin } from "../slices/navSlice";
 
 const data = [
   {
@@ -17,13 +19,13 @@ const data = [
     image: "https://links.papareact.com/28w",
     sreen: "EatsScreen",
   },
-  {
+  /* {
     id: "9102",
     title: "Whatsup",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png",
     sreen: "WhatsupScreen",
-  },
+  }, */
   {
     id: "9103",
     title: "Countries",
@@ -41,6 +43,7 @@ const data = [
 ];
 const NavOptions = () => {
   const navigation = useNavigation();
+  const origin = useSelector(selectOrigin);
   return (
     <FlatList
       data={data}
@@ -51,16 +54,21 @@ const NavOptions = () => {
         <TouchableOpacity
           onPress={() => navigation.navigate(item.sreen)}
           style={[tw`bg-gray-300 p-2 m-2`, { borderRadius: 6, width: "46%" }]}
+          //if(origin is not set )
+          disabled={!origin}
         >
           <View
-            style={{
-              paddingLeft: 6,
-            }}
+            style={[
+              tw`${!origin && "opacity-20"}`,
+              {
+                paddingLeft: 6,
+              },
+            ]}
           >
             <Image
               style={{
                 width: 110,
-                height: 90,
+                height: 60,
                 paddingLeft: 120,
                 resizeMode: "contain",
               }}

@@ -5,6 +5,7 @@ import {
   View,
   SafeAreaView,
   Image,
+  Button,
   TouchableOpacity,
 } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
@@ -12,11 +13,14 @@ import tw from "tailwind-react-native-classnames";
 import GooglePlacesInput from "../components/GooglePlacesInput";
 import NavOptions from "../components/NavOptions";
 import { GOOGLE_API_KEY } from "@env";
-import { useDispatch } from "react-redux";
-import { setDetination, setOrigin } from "../slices/navSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setDestination, setDetination, setOrigin } from "../slices/navSlice";
+import NavFavorites from "../components/NavFavorites";
 
 export default function HomeScreen() {
   const dispatch = useDispatch();
+  const selector = useSelector((state) => state);
+  console.log(selector.nav, "state");
   return (
     <SafeAreaView style={tw`h-full pb-20`}>
       <View style={tw`p-5 pt-0`}>
@@ -44,7 +48,7 @@ export default function HomeScreen() {
                 description: data.description,
               })
             );
-            dispatch(setDetination(null));
+            dispatch(setDestination(null));
           }}
           fetchDetails={true}
           query={{
@@ -61,6 +65,8 @@ export default function HomeScreen() {
           }}
         />
         <NavOptions />
+
+        <NavFavorites />
       </View>
     </SafeAreaView>
   );
