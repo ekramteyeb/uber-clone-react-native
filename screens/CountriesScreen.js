@@ -62,9 +62,11 @@ const CountriesScreen = () => {
                     }}
                   />
                 </View>
-                <View style={styles.texts}>
-                  <Text style={styles.title}>{item.name}</Text>
-                  <Text style={styles.title}> € {item.adaptability}</Text>
+                <View style={tw`items-center p-5`}>
+                  <Text style={styles.title}>Name : {item.name}</Text>
+                  <Text style={styles.title}>
+                    Adaptability: {item.adaptability}
+                  </Text>
                 </View>
               </View>
             </TouchableOpacity>
@@ -87,7 +89,6 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
   },
   item: {
-    paddingRight: 45,
     padding: 18,
     marginVertical: 6,
     marginHorizontal: 8,
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontFamily: "Cochin",
   },
-  texts: { marginLeft: 30 },
+
   header: {
     fontSize: 32,
     fontWeight: "bold",
