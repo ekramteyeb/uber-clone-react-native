@@ -63,7 +63,7 @@ const CountriesScreen = () => {
                   />
                 </View>
                 <View style={tw`items-center p-5`}>
-                  <Text style={styles.title}>Name : {item.name}</Text>
+                  <Text style={styles.title}>{item.name}</Text>
                   <Text style={styles.title}>
                     Adaptability: {item.adaptability}
                   </Text>
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   title: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: "bold",
     fontFamily: "Cochin",
   },
